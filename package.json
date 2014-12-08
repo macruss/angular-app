@@ -1,0 +1,30 @@
+{
+  "name": "angular-app",
+  "version": "0.0.1",
+  "description": "test angular app",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macruss/angular-app.git"
+  },
+  "author": "Ruslan Makarenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macruss/angular-app/issues"
+  },
+  "homepage": "https://github.com/macruss/angular-app",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.2",
+    "gulp-connect": "^2.2.0",
+    "gulp-ng-annotate": "^0.4.1",
+    "gulp-sourcemaps": "^1.2.8",
+    "gulp-uglify": "^1.0.2"
+  }
+}
