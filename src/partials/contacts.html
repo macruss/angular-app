@@ -1,16 +1,23 @@
 <h2>Contacts</h2>
 <hr>
-<form class="form-inline">
-  <label for="search" class="col-sm-1 control-label">Search</label> 
-  <div class="form-group col-sm-3">
-    <input class="form-control" id="search" ng-model="vm.search">
+
+  
+  <div class="col-sm-3">
+    <b>Search</b> 
+    <input class="form-control" id="search" ng-model="vm.search" ng-change="vm.setTotalItems()">
   </div>
-  <label class="col-sm-1 control-label">orderBy </label>
-  <div class="form-group">
-    <select class="form-control col-sm-2" ng-model="vm.orderByColumn" ng-options="col.name for col in vm.sortColumns"></select>
+  
+  <div class="col-sm-2">
+    <b>OrderBy</b>
+    <select class="form-control" ng-model="vm.orderByColumn" ng-options="col.name for col in vm.sortColumns"></select>
   </div>
-</select>
-</form>
+  
+  <div class="col-sm-2">
+    <b>Items per page </b>
+    <select class="form-control" ng-model="vm.itemsPerPage" ng-options="opt for opt in vm.optItemsPerPage"></select>
+  </div>
+
+
 <table class="table">
   <thead>
     <tr>
@@ -22,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="contact in vm.contacts | filter:vm.search | orderBy:vm.orderByColumn.value">
+    <tr ng-repeat="contact in vm.contacts | orderBy:vm.orderByColumn.value | pagination: vm.currentPage : vm.itemsPerPage | limitTo: vm.itemsPerPage ">
       <td><a ng-href="#/{{contact.id}}" ng-bind="contact.first_name + ' ' + contact.last_name"></a></td>
       <td ng-bind="contact.email"></td>
       <td ng-bind="contact.phone"></td>
@@ -31,3 +38,5 @@
     </tr>
   </tbody>
 </table>
+
+<pagination total-items="vm.totalItems" ng-model="vm.currentPage" items-per-page="vm.itemsPerPage"></pagination>

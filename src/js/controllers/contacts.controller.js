@@ -4,9 +4,9 @@
   angular.module('app')
     .controller('ContactsCtrl', ContactsCtrl);
 
-  ContactsCtrl.$inject = ['contacts'];
+  ContactsCtrl.$inject = ['contacts', '$log', 'filterFilter'];
 
-  function ContactsCtrl( contacts) {
+  function ContactsCtrl(contacts, $log, filterFilter) {
     var vm = this;
     vm.contacts = [];
     vm.sortColumns = [
@@ -18,26 +18,23 @@
             {name:'Date of birth',value:'birth_date'}
         ];
     vm.orderByColumn = vm.sortColumns[0];
+    vm.optItemsPerPage = [10, 20, 50];
 
     activate();
 
-// pagination
-
-    vm.totalItems = 10;
-    vm.currentPage = 5;
-    // $scope.maxSize = 10;
-    
-
-    // $scope.setPage = function (pageNo) {
-    //   $scope.currentPage = pageNo;
-    // };
-    // $scope.bigTotalItems = 10;
-    // $scope.bigCurrentPage = 123;
-
-
-
     function activate() {
-      vm.contacts = contacts.all()
+      vm.contacts = contacts.all();
+      vm.totalItems = vm.contacts.length;
+      vm.currentPage = 1;
+      vm.itemsPerPage = vm.optItemsPerPage[0];
+
+    }
+
+    vm.setTotalItems = setTotalItems;
+
+    function setTotalItems() {
+      vm.contacts = filterFilter(contacts.all(), vm.search)
+      vm.totalItems = vm.contacts.length;
     }
 
   }
