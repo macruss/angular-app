@@ -9,16 +9,14 @@
   function ContactsCtrl(contacts, $log, filterFilter) {
     var vm = this;
     vm.contacts = [];
-    vm.sortColumns = [
-            {name:'Name', value:'first_name'},
-            {name:'Surname' ,value:'last_name'},
-            {name:'Email' ,value:'email'},
-            {name:'Phone' ,value:'phone'},
-            {name:'Company' ,value:'company'},
-            {name:'Date of birth',value:'birth_date'}
-        ];
-    vm.orderByColumn = vm.sortColumns[0];
+    vm.sortField = undefined;
+    vm.reverse = false;
     vm.optItemsPerPage = [10, 20, 50];
+    
+    vm.setTotalItems = setTotalItems;
+    vm.sort = sort;
+    vm.isSortUp = isSortUp;
+    vm.isSortDown = isSortDown;
 
     activate();
 
@@ -27,14 +25,28 @@
       vm.totalItems = vm.contacts.length;
       vm.currentPage = 1;
       vm.itemsPerPage = vm.optItemsPerPage[0];
-
     }
-
-    vm.setTotalItems = setTotalItems;
 
     function setTotalItems() {
       vm.contacts = filterFilter(contacts.all(), vm.search)
       vm.totalItems = vm.contacts.length;
+    }
+
+    function sort(fieldName) {
+      if(vm.sortField === fieldName)
+        vm.reverse = !vm.reverse
+      else{
+        vm.sortField = fieldName;
+        vm.reverse = false;
+      }
+    }
+
+    function isSortUp(fieldName) {
+      return vm.sortField === fieldName && !vm.reverse;
+    }
+
+    function isSortDown(fieldName) {
+      return vm.sortField === fieldName && vm.reverse;
     }
 
   }
