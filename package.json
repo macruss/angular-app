@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./src -a 0.0.0.0 -p 8000"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "gulp-html-replace": "^1.4.1",
     "gulp-ng-annotate": "^0.4.1",
     "gulp-sourcemaps": "^1.2.8",
-    "gulp-uglify": "^1.0.2"
+    "gulp-uglify": "^1.0.2",
+    "http-server": "^0.7.4"
   }
 }
