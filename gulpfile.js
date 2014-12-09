@@ -71,7 +71,7 @@ gulp.task('watch', function() {
   gulp.watch(paths.html, ['html']);
 })
 gulp.task('watchDev', function() {
-  gulp.watch(paths.html, ['reload']);
+  gulp.watch([paths.html, paths.app], ['reload']);
 })
 
 gulp.task('default', ['lib', 'concat', 'html', 'connectDist', 'watch']);
