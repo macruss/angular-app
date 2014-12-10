@@ -1,23 +1,19 @@
 <h2>Contacts</h2>
 <hr>
 
-  
   <div class="col-sm-3">
     <b>Search</b> 
     <input class="form-control" id="search" ng-model="vm.search" ng-change="vm.setTotalItems()">
   </div>
-  
-<!--   <div class="col-sm-2">
-    <b>OrderBy</b>
-    <select class="form-control" ng-model="vm.orderBy" ng-options="col.name for col in vm.sortColumns"></select>
-  </div> -->
-  
+
   <div class="col-sm-2">
     <b>Items per page </b>
     <select class="form-control" ng-model="vm.itemsPerPage" ng-options="opt for opt in vm.optItemsPerPage"></select>
   </div>
 
-
+  <div class="col-sm-2 pull-right">
+    <button onclick="location.href='#/new-contact'" class="btn  btn-primary btn-lg ">New contact</button>
+  </div>
 <table class="table table-hover">
   <thead>
     <tr>

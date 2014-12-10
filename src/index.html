@@ -5,6 +5,7 @@
   <title>angular-app</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css">
 </head>
 <body>
   <div class="container">
@@ -14,12 +15,13 @@
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   
   <!-- build:lib -->
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.12.0.min.js"></script>
   <!-- endbuild -->
 
   <!-- build:app -->
@@ -30,6 +32,7 @@
   <script src="js/controllers/contacts.controller.js"></script>
   <script src="js/controllers/edit-contact.controller.js"></script>
   <script src="js/filters/pagination.filter.js"></script>
+  <script src="js/directives/datepicker.directive.js"></script>
   <!-- endbuild -->
 </body>
 </html>
