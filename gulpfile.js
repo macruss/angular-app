@@ -7,9 +7,9 @@ var gulp = require('gulp'),
   htmlreplace = require('gulp-html-replace'),
 
   paths = {
-    app: ['src/js/*.js', 'src/js/**/*.js'],
-    lib: ['src/bower_components/**/*.min.js', 'src/bower_components/**/*.min.js' ],
-    html: ['src/*.html', 'src/**/*.html', 'src/*.json' ]
+    app: ['public/src/js/*.js', 'public/src/js/**/*.js'],
+    lib: ['public/src/bower_components/**/*.min.js', 'public/src/bower_components/**/*.min.js' ],
+    html: ['public/src/*.html', 'public/src/**/*.html', 'public/src/*.json' ]
   };
 
 gulp.task('connectDist', function() {
@@ -75,5 +75,6 @@ gulp.task('watchDev', function() {
 })
 
 gulp.task('default', ['lib', 'concat', 'html', 'connectDist', 'watch']);
+gulp.task('dist', ['lib', 'concat', 'html']);
 
 gulp.task('dev', ['connectDev', 'watchDev']);

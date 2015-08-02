@@ -2,13 +2,13 @@
   "name": "angular-app",
   "version": "0.0.1",
   "description": "test angular app",
-  "main": "index.js",
+  "main": "src/server.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server ./src -a 0.0.0.0 -p 8000"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,13 @@
     "url": "https://github.com/macruss/angular-app/issues"
   },
   "homepage": "https://github.com/macruss/angular-app",
+  "dependencies" : {
+    "express"    : "~4.7.2",
+    "mongoose"   : "~3.6.2",
+    "morgan"     : "~1.2.2",
+    "body-parser": "~1.5.2",
+    "method-override": "~2.1.2"
+    },
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-concat": "^2.4.2",
