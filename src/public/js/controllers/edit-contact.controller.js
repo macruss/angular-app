@@ -20,7 +20,7 @@
         activate();
 
         function activate() {
-            if (Number($routeParams.id)) {
+            if ($routeParams.id !== "new-contact") {
                 get($routeParams.id);
                 vm.submitAction = update;
             } else {
@@ -30,7 +30,9 @@
 
 
         function get(id) {
-            return vm.contact = contacts.get(id);
+            contacts.get(id).then(function(contact){
+                vm.contact = contact;
+            });
         }
         
         function update(contact) {

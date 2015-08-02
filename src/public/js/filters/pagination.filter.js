@@ -7,6 +7,7 @@
 
     function pagination() {
         return function(input, curPage, itemsPerPage) {
+          // console.log(input);
             return input.slice((curPage - 1) * itemsPerPage);
         };
     }

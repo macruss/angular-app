@@ -27,14 +27,16 @@
     activate();
 
     function activate() {
-      vm.contacts = contacts.all(); 
+      contacts.all().then(function(contacts){
+        vm.contacts = contacts;
+      }); 
       vm.totalItems = vm.contacts.length;
       vm.currentPage = 1;
       vm.itemsPerPage = vm.optItemsPerPage[0];
     }
 
     function setTotalItems() {
-      vm.contacts = filterFilter(contacts.all(), vm.search)
+      vm.contacts = filterFilter(vm.contacts, vm.search)
       vm.totalItems = vm.contacts.length;
     }
 
